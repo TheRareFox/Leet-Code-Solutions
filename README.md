@@ -2,7 +2,7 @@
 All of my solutions to the LeetCode problems I did, mostly done in c++ 
 
 # Easy
-- <a href = "https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/description/">1523. Count Odd Numbers in an Interval Range</a>
+- <a href = "https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/description/">1523. Count Odd Numbers in an Interval Range</a>  
 <a href = "https://leetcode.com/problems/merge-two-sorted-lists/">21. Merge Two Sorted Lists</a>\n
 <a href = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/">26. Remove Duplicates from Sorted Array</a>\n
 <a href = "https://leetcode.com/problems/search-insert-position/">35. Search Insert Position</a>\n
