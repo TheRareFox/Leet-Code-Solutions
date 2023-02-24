@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<vector<int>> t;
+    int dfs(int prev,int layer,vector<vector<int>>& memo){
+        if(layer>t.size()-1){
+            return 0;
+        }
+        if(memo[layer][prev]!= -1){
+            return memo[layer][prev];
+        }
+        memo[layer][prev]= min(t[layer][prev] + dfs(prev,layer+1,memo),t[layer][prev] +dfs(prev+1,layer+1,memo));
+        
+        return memo[layer][prev];
+    }
+    int minimumTotal(vector<vector<int>>& tri) {
+        t = tri;
+        int prev = 0;
+        int sum = t[0][0];
+        vector<vector<int>> memo(t.size(), vector<int>(t.size(), -1));
+        return dfs(0,0,memo);
+    }
+};

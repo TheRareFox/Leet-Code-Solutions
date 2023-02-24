@@ -1,0 +1,69 @@
+class Solution {
+public:
+    vector<vector<char>> bd;
+    bool checkgrid(int x, int y){
+        unordered_set<int> seen;
+        for(int i=x;i<x+3;i++){
+            for(int j=y;j<y+3;j++){
+                if(bd[i][j] == '.'){
+                    continue;
+                }
+                if(seen.find(bd[i][j])!=seen.end()){
+                    return false;
+                }
+                seen.insert(bd[i][j]);
+            }
+        }
+        return true;
+    }
+
+    bool checkrow(int x){
+        unordered_set<int> seen;
+        for(int i=0;i<bd[0].size();i++){
+            if(bd[x][i] == '.'){
+                continue;
+            }
+            if(seen.find(bd[x][i])!=seen.end()){
+                return false;
+            }
+            seen.insert(bd[x][i]);
+        }
+        return true;
+    }
+
+    bool checkcol(int y){
+        unordered_set<int> seen;
+        for(int i=0;i<bd.size();i++){
+            if(bd[i][y] == '.'){
+                continue;
+            }
+            if(seen.find(bd[i][y])!=seen.end()){
+                return false;
+            }
+            seen.insert(bd[i][y]);
+        }
+        return true;
+    }
+
+    bool isValidSudoku(vector<vector<char>>& board) {
+        bd = board;
+        for(int i=0;i<board.size();i++){
+            if(!checkrow(i)){
+                return false;
+            }
+        }
+        for(int i=0;i<board[0].size();i++){
+            if(!checkcol(i)){
+                return false;
+            }
+        }
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                if(!checkgrid(i*3,j*3)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};

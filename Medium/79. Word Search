@@ -1,0 +1,66 @@
+class Solution {
+public:
+    vector<int> DIR = {0,1,0,-1,0};
+    vector<vector<char>> bd;
+    string wd;
+    bool dfs(int x,int y,int index,vector<pair<int,int>> seen = {}){
+        if(index >= wd.length()){
+            return true;
+        }
+        seen.push_back(make_pair(x,y));
+        for(int j=0;j<4;j++){
+            if(x+DIR[j]>=0&&x+DIR[j]<bd.size()&&y+DIR[j+1]>=0&&y+DIR[j+1]<bd[0].size()){
+                if(bd[x+DIR[j]][y+DIR[j+1]]==wd[index]){
+                    if(find(seen.begin(),seen.end(),make_pair(x+DIR[j],y+DIR[j+1]))==seen.end()){
+                        if(dfs(x+DIR[j],y+DIR[j+1],index+1,seen)){
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    bool exist(vector<vector<char>>& board, string word) {
+        bd = board;
+        vector<vector<int>> s;
+        vector<vector<int>> r;
+        unordered_map<char,int> check;
+        for(int x = 0;x<board.size();x++){
+            for(int y = 0;y<board[0].size();y++){
+                if(board[x][y]==word[0]){
+                    s.push_back({x,y});
+                }
+                else if(board[x][y]==word[word.length()-1]){
+                    r.push_back({x,y});
+                }
+                check[board[x][y]]++;
+            }
+        }
+        for(auto w:word){
+            check[w]--;
+            if(check[w]<0){
+                return false;
+            }
+        }
+        if(check[word[0]]>check[word[word.length()-1]]){
+            reverse(word.begin(), word.end());
+            wd = word;
+            
+            for(auto a:r){
+                if(dfs(a[0],a[1],1)){
+                    return true;
+                }
+            }
+        }
+        else{
+            wd = word;
+            for(auto a:s){
+                if(dfs(a[0],a[1],1)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};

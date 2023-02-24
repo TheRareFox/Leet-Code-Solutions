@@ -1,0 +1,15 @@
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        vector<int> temp = nums;
+        int point1=k%nums.size();
+        for(int i=0;i<nums.size();i++){
+            nums[point1] = temp[i];
+            point1++;
+            if(point1>nums.size()-1){
+                point1 = 0;
+            }
+        }
+        return;
+    }
+};
