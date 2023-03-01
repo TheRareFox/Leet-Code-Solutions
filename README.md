@@ -13,8 +13,8 @@ All of my solutions to the LeetCode problems I did, mostly done in c++
   
 
 # Medium
-- <a href = "//https://leetcode.com/problems/minimum-falling-path-sum/">931. Minimum Falling Path Sum</a>  
-- <a href = "//https://leetcode.com/problems/add-two-numbers/description/">2. Add Two Numbers</a>  
+- <a href = "https://leetcode.com/problems/minimum-falling-path-sum/">931. Minimum Falling Path Sum</a>  
+- <a href = "https://leetcode.com/problems/add-two-numbers/description/">2. Add Two Numbers</a>  
 - <a href = "https://leetcode.com/problems/longest-substring-without-repeating-characters/">3. Longest Substring Without Repeating Characters</a>  
 - <a href = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/">19. Remove Nth Node From End of List</a>  
 - <a href = "https://leetcode.com/problems/valid-sudoku/">36. Valid Sudoku</a>  
